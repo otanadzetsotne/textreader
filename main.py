@@ -27,7 +27,7 @@ class TextReader:
         """
 
         path = path.strip()
-        image = self._get_image_l(path)
+        image = self._get_image(path)
         prediction = self.__reader.readtext(image)
 
         if additional_info:
@@ -54,7 +54,7 @@ class TextReader:
             yield self.read_local(image, additional_info)
 
     @staticmethod
-    def _get_image_l(
+    def _get_image(
             path: str,
     ):
         """
