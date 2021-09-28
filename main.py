@@ -64,7 +64,7 @@ class TextReader:
         """
 
         image = Image.open(path)
-        image = image.convert('L')
+        image = image.convert('RGB')
         image = np.array(image)
 
         return image
