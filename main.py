@@ -10,7 +10,7 @@ from settings import settings
 class TextReader:
     def __init__(
             self,
-            reader_settings: dict = settings.get('reader'),
+            reader_settings: dict,
     ):
         self.__reader = Reader(**reader_settings)
 
@@ -68,6 +68,15 @@ class TextReader:
         image = np.array(image)
 
         return image
+
+
+def read_local(
+        path: str,
+        additional_info: bool = True,
+        reader_settings=settings.get('reader'),
+):
+    reader = TextReader(reader_settings)
+    return reader.read_local(path, additional_info)
 
 
 if __name__ == '__main__':
